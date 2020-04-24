@@ -82,7 +82,8 @@ namespace WCDWpf.Detector
         }
         private void HTMLNodeCompare()
         {
-            if(_oldNode == null || _newNode == null) { 
+            if (_oldNode != null && _newNode != null)
+            {
                 if (_oldNode.OuterHtml != _newNode.OuterHtml)
                 {
                     _oldNode = _newNode;
@@ -95,10 +96,12 @@ namespace WCDWpf.Detector
                     DetectorArgs myArgs = new DetectorArgs("no changes on website ");
                     HistoryChange(this, myArgs);
                 }
+            }
+            else
+            {
                 DetectorArgs myArg = new DetectorArgs("Cant find element on website ");
                 HistoryChange(this, myArg);
             }
-
         }
 
         private String GetHtmlPage()
