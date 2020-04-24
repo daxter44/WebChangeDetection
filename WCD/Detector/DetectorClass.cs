@@ -44,8 +44,8 @@ namespace WCDWpf.Detector
         }
         private void timer_Tick(object sender, EventArgs e)
         {
-           HtmlDocument newWebPage = new HtmlDocument() ;
-           newWebPage.LoadHtml(GetHtmlPage());
+            _newWebPage = new HtmlDocument() ;
+            _newWebPage.LoadHtml(GetHtmlPage());
             
             if (_elementName == "")
             {
@@ -53,7 +53,7 @@ namespace WCDWpf.Detector
             }
             else
             {
-                _newNode = newWebPage.GetElementbyId(_elementName);
+                _newNode = _newWebPage.GetElementbyId(_elementName);
                 HTMLNodeCompare();
             }       
         }
