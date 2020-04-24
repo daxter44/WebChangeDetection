@@ -31,8 +31,14 @@ namespace WCDWpf.Detector
         {
             _oldWebPage = new HtmlDocument();
             _oldWebPage.LoadHtml(GetHtmlPage());
-            if(_elementName != "")
-            _oldNode = _oldWebPage.GetElementbyId(_elementName);
+            if(_elementName != "") { 
+                _oldNode = _oldWebPage.GetElementbyId(_elementName);
+                if(_oldNode == null)
+                {
+                    DetectorArgs myArg = new DetectorArgs("Cant find element on website ");
+                    HistoryChange(this, myArg);
+                }
+            }
             _timer = new DispatcherTimer();
             _timer.Tick += timer_Tick;
             _timer.Interval = new TimeSpan(0, _freq, 0);
@@ -76,17 +82,21 @@ namespace WCDWpf.Detector
         }
         private void HTMLNodeCompare()
         {
-            if (_oldNode.OuterHtml != _newNode.OuterHtml)
-            {
-                _oldNode = _newNode;
-                DetectorArgs myArgs = new DetectorArgs("Your node changes");
-                HistoryChange(this, myArgs);
-                OnWebsiteChange(this, myArgs);
-            }
-            else
-            {
-                DetectorArgs myArgs = new DetectorArgs("no changes on website ");
-                HistoryChange(this, myArgs);
+            if(_oldNode == null || _newNode == null) { 
+                if (_oldNode.OuterHtml != _newNode.OuterHtml)
+                {
+                    _oldNode = _newNode;
+                    DetectorArgs myArgs = new DetectorArgs("Your node changes");
+                    HistoryChange(this, myArgs);
+                    OnWebsiteChange(this, myArgs);
+                }
+                else
+                {
+                    DetectorArgs myArgs = new DetectorArgs("no changes on website ");
+                    HistoryChange(this, myArgs);
+                }
+                DetectorArgs myArg = new DetectorArgs("Cant find element on website ");
+                HistoryChange(this, myArg);
             }
 
         }
