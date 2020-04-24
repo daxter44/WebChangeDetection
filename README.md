@@ -10,10 +10,11 @@ This app is full made in .NET WPF + C#.
 2. Change e-mail settings in WCD/Mail/MailSender.cs
 3. Build and run 
 4. Type url which you want to spy
-5. Type id of element example: if on website appear <div id="products-header"> type products-header
-   5.1. If You leave this field clear, you'll be comparing the entire page
+5. Type id of element example: <br />
+   if on website appear div id="products-header"/> type products-header<br />
+   If You leave this field clear, you'll be comparing the entire page
 6. Type how frequently do You want to check
-7. Type Your e-mail address if you want to get notification
+7. Type Your e-mail address if you want to get notification<br />
     7.1 If You leave this field clear, emails will not be sent
 8. Push detect button
 
