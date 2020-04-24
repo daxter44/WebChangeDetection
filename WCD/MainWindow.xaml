@@ -17,10 +17,12 @@
                     </Grid.ColumnDefinitions>
                     <TextBox x:Name="tbURL" HorizontalAlignment="Left" Height="23" Margin="7,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="331" Grid.ColumnSpan="2"/>
                     <Label x:Name="lblWpiszurl" Content="Type url" HorizontalAlignment="Left" Margin="7,13,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="lblFrequency" Content="Frequency (min)" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="tbFreq"  PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Height="23" Margin="7,103,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="331" Grid.ColumnSpan="2"/>
-                    <Label x:Name="label" Content="E-Mail" HorizontalAlignment="Left" Margin="10,131,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.06,-0.169"/>
-                    <TextBox x:Name="tbEmail" HorizontalAlignment="Left" Height="23" Margin="7,162,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="331" Grid.ColumnSpan="2"/>
+                    <Label x:Name="lblElement" Content="Type element id" HorizontalAlignment="Left" Margin="7,74,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbElement" HorizontalAlignment="Left" Height="23" Margin="7,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="331" Grid.ColumnSpan="2"/>
+                    <Label x:Name="lblFrequency" Content="Frequency (min)" HorizontalAlignment="Left" Margin="10,138,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbFreq"  PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Height="23" Margin="7,169,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="331" Grid.ColumnSpan="2"/>
+                    <Label x:Name="label" Content="E-Mail" HorizontalAlignment="Left" Margin="10,197,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.06,-0.169"/>
+                    <TextBox x:Name="tbEmail" HorizontalAlignment="Left" Height="23" Margin="7,228,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="331" Grid.ColumnSpan="2"/>
                 </Grid>
 
             </TabItem>

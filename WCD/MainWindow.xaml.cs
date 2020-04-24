@@ -36,6 +36,8 @@ namespace WCDWpf
                 tbURL.IsEnabled = true;
                 tbEmail.IsEnabled = true;
                 tbFreq.IsEnabled = true;
+                tbElement.IsEnabled = true;
+                detector.StopDetection();
             }
             else
             {
@@ -43,13 +45,14 @@ namespace WCDWpf
                 tbURL.IsEnabled = false;
                 tbEmail.IsEnabled = false;
                 tbFreq.IsEnabled = false;
+                tbElement.IsEnabled = false;
                 StartDetector();
             };
         }
 
         private void StartDetector()
         {
-            detector = new DetectorClass(tbURL.Text, Convert.ToInt32(tbFreq.Text));
+            detector = new DetectorClass(tbURL.Text, Convert.ToInt32(tbFreq.Text), tbElement.Text);
             detector.OnWebsiteChange +=
                new DetectorClass.DetectorHandler(ShowNotification);
             detector.HistoryChange +=
@@ -66,7 +69,16 @@ namespace WCDWpf
         private void ShowNotification(object myObject, DetectorArgs myArgs)
         {
             trayClass.ShowTrayInformation("Website change detector! ", myArgs.Message);
-            MailSender.sendMail(tbEmail.Text, tbURL.Text);
+            try { 
+                if(tbEmail.Text != null &&  tbEmail.Text != "") { 
+                    MailSender.sendMail(tbEmail.Text, tbURL.Text);
+                }
+            }
+            catch (Exception e)
+            {
+                String historyItem = DateTime.Now.ToLocalTime().ToString() + " !! " + e.Message;
+                lbHistory.Items.Add(historyItem);
+            }
         }
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
